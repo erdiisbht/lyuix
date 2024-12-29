@@ -1,18 +1,36 @@
 /* Genel Stiller */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+html {
+    height: 100%;
 }
 
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    /* Arka plan ayarları güncellendi */
+    min-height: 100%;
+    position: relative;
+}
+
+/* Arka plan için yeni bir wrapper div ekleyelim */
+.bg-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
     background: url('../img/blg.jpg') no-repeat center center;
     background-size: cover;
-    min-height: 100vh;
-    position: relative;
+}
+
+/* Saydam katman için body::before yerine wrapper::after kullanalım */
+.bg-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
 /* Mobil cihazlar için özel stil */
@@ -29,18 +47,6 @@ body {
         height: 100%;
         overflow-x: hidden;
     }
-}
-
-/* Saydam katman eklemek için body'ye before pseudo elementi */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.7); /* Beyaz saydam katman */
-    z-index: -1;
 }
 
 /* Ana Sayfa */
