@@ -47,6 +47,34 @@ body {
         height: 100%;
         overflow-x: hidden;
     }
+
+    .bg-wrapper {
+        background-size: contain; /* cover yerine contain kullanıyoruz */
+        background-position: center top; /* Resmi üstten başlatıyoruz */
+        height: 100vh; /* Viewport height'a göre ayarlıyoruz */
+    }
+
+    /* Dikey mobil görünüm için */
+    @media (orientation: portrait) {
+        .bg-wrapper {
+            background-size: 100% auto; /* Genişliği ekrana sığdır */
+        }
+    }
+
+    /* Yatay mobil görünüm için */
+    @media (orientation: landscape) {
+        .bg-wrapper {
+            background-size: auto 100vh; /* Yüksekliği ekrana sığdır */
+        }
+    }
+}
+
+/* Daha küçük ekranlar için ek düzenleme */
+@media (max-width: 480px) {
+    .bg-wrapper {
+        background-position: center top;
+        background-size: 100% auto;
+    }
 }
 
 /* Ana Sayfa */
