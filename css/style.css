@@ -8,13 +8,27 @@
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    /* Arka plan ayarları */
-    background: url('../img/blg.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+    /* Arka plan ayarları güncellendi */
+    background: url('../img/blg.jpg') no-repeat center center;
     background-size: cover;
+    min-height: 100vh;
     position: relative;
+}
+
+/* Mobil cihazlar için özel stil */
+@media (max-width: 768px) {
+    body {
+        /* Mobil için arka plan ayarları */
+        background: url('../img/blg.jpg') no-repeat center center;
+        background-size: cover;
+        background-attachment: scroll; /* fixed yerine scroll kullanıyoruz */
+    }
+    
+    /* Sayfa içeriğinin kaymasını önlemek için */
+    html, body {
+        height: 100%;
+        overflow-x: hidden;
+    }
 }
 
 /* Saydam katman eklemek için body'ye before pseudo elementi */
